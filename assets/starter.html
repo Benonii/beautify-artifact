@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-way="k-green">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Episode 12 plan</title>
+<script>try{var w=localStorage.getItem("doc-way");if(w)document.documentElement.dataset.way=w}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Inter:wght@500&display=swap" rel="stylesheet">
+<style>
+/* ---------- grounds: one ink on one ground ---------- */
+:root,[data-way="k-green"]{--bg:#0f5132;--ink:#d7d7d2}
+[data-way="k-bright"]{--bg:#3ecf6e;--ink:#2a2d2b}
+[data-way="k-orange"]{--bg:#df613a;--ink:#f6f1ea}
+[data-way="k-signal"]{--bg:#d6d7cf;--ink:#f2481c}
+[data-way="k-lime"]{--bg:#a7e046;--ink:#111111}
+[data-way="k-night"]{--bg:#0a0a0a;--ink:#e2ff1a}
+[data-way="k-black"]{--bg:#0a0a0a;--ink:#f6f5ee}
+[data-way="k-slate"]{--bg:#6e736d;--ink:#0e140c}
+[data-way="k-bone"]{--bg:#f0efe8;--ink:#161616}
+[data-way="k-sand"]{--bg:#e5ddc5;--ink:#2e271c}
+[data-way="k-charcoal"]{--bg:#3e3f44;--ink:#cfcdc8}
+[data-way="k-lavender"]{--bg:#c4c0c9;--ink:#141414}
+[data-way="k-mint"]{--bg:#e4eae1;--ink:#1d211c}
+
+/* ---------- base ---------- */
+:root{--mono:"IBM Plex Mono","Geist Mono",ui-monospace,monospace;--sans:"Inter","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%}
+body{font:400 12px/1.55 var(--mono);background:var(--bg);color:var(--ink)}
+::selection{background:var(--ink);color:var(--bg)}
+a{color:inherit}
+.page{max-width:1240px;margin:0 auto;padding:28px 24px 64px;display:flex;flex-direction:column;gap:28px}
+
+/* ---------- hand-drawn borders: the line wobbles, the text stays crisp ---------- */
+.box,.dsh,.top,.tb,table{position:relative}
+.box::before,.dsh::before{content:"";position:absolute;inset:0;border:1px solid var(--ink);filter:url(#k2wob);pointer-events:none}
+.dsh::before{border-style:dashed}
+
+/* ---------- label ---------- */
+.lb{display:flex;flex-direction:column;gap:10px;padding:14px;min-width:0}
+.hd{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.hd svg{width:14px;height:14px;flex:none;stroke:var(--ink);fill:none;stroke-width:1.2}
+.hd .r{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.tag{display:inline-block;background:var(--ink);color:var(--bg);padding:1px 6px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;line-height:1.5}
+.pill{display:inline-block;border:1px solid var(--ink);border-radius:999px;padding:0 8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;line-height:1.6}
+.pill.no{border-style:dashed}
+
+/* ---------- values and text ---------- */
+.big{font-family:var(--sans);font-weight:500;letter-spacing:-.04em;line-height:.92;filter:url(#k2ink);overflow-wrap:anywhere}
+.big.n{font-size:64px}
+.big.p{font-size:27px;text-transform:uppercase;line-height:1}
+.big.s{font-size:23px;line-height:1}
+.cap{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.txt{font-size:12px;line-height:1.55;max-width:68ch}
+.q{font-size:15px;line-height:1.4}
+.sp{display:block;font-size:11px;letter-spacing:.5em;text-transform:uppercase;white-space:nowrap;overflow:hidden}
+.sp.wrap{white-space:normal}
+
+/* ---------- decoration: dimension line, barcode, ruler, dashed rule ---------- */
+.dim{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-left:1px solid var(--ink);border-right:1px solid var(--ink);padding:0 2px;min-height:18px}
+.dim i{flex:1;height:1px;background:var(--ink);position:relative}
+.dim i::before{content:"";position:absolute;top:-4px;border:4.5px solid transparent}
+.dim i:first-child::before{left:0;border-left:0;border-right:7px solid var(--ink)}
+.dim i:last-child::before{right:0;border-right:0;border-left:7px solid var(--ink)}
+.dim b{font-weight:400;white-space:nowrap}
+.bar{height:34px;background:
+  repeating-linear-gradient(90deg,transparent 0 13px,var(--bg) 13px 15px,transparent 15px 23px),
+  repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 3px,var(--ink) 3px 4px,transparent 4px 7px,var(--ink) 7px 10px,transparent 10px 11px)}
+.tick{height:14px;background:
+  repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 40px) left bottom/100% 14px no-repeat,
+  repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 8px) left bottom/100% 6px no-repeat,
+  linear-gradient(var(--ink),var(--ink)) left bottom/100% 1px no-repeat}
+.rule{height:9px;background:
+  linear-gradient(var(--ink),var(--ink)) left center/1px 100% no-repeat,
+  linear-gradient(var(--ink),var(--ink)) right center/1px 100% no-repeat,
+  repeating-linear-gradient(90deg,var(--ink) 0 6px,transparent 6px 11px) center/calc(100% - 8px) 1px no-repeat}
+
+/* ---------- key/value grid ---------- */
+.tb{display:grid;grid-template-columns:max-content 1fr;border-top:1px solid var(--ink)}
+.tb.c2{grid-template-columns:max-content 1fr max-content 1fr}
+.tb>*{padding:6px 10px 6px 0;border-bottom:1px solid var(--ink);min-width:0}
+.tb>:nth-child(odd){font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding-right:16px}
+
+/* ---------- section rule ---------- */
+.sec{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.sec .n{background:var(--ink);color:var(--bg);padding:2px 8px;white-space:nowrap}
+.sec .ln{flex:1;height:1px;background:var(--ink)}
+.sec .ct{white-space:nowrap}
+
+/* ---------- table: thin grid, header never filled ---------- */
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid var(--ink);padding:7px 10px;text-align:left;vertical-align:top}
+th{font-weight:400;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--ink)}
+
+/* ---------- hero with crop marks ---------- */
+.top{padding:30px 30px 26px;display:flex;flex-direction:column;gap:18px}
+.top .cm{position:absolute;width:18px;height:18px;border:0 solid var(--ink);filter:url(#k2wob)}
+.top .tl{top:0;left:0;border-top-width:1px;border-left-width:1px}
+.top .tr{top:0;right:0;border-top-width:1px;border-right-width:1px}
+.top .bl{bottom:0;left:0;border-bottom-width:1px;border-left-width:1px}
+.top .br{bottom:0;right:0;border-bottom-width:1px;border-right-width:1px}
+h1{font-family:var(--sans);font-weight:500;letter-spacing:-.04em;line-height:.88;text-transform:uppercase;font-size:clamp(46px,9.5vw,124px);filter:url(#k2ink);overflow-wrap:anywhere}
+.lead{font-size:15px;line-height:1.4;max-width:56ch}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* ---------- ink buttons ---------- */
+.ways{display:flex;flex-wrap:wrap;gap:6px}
+.ways button{font:400 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);padding:5px 8px 5px 5px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:background .15s,color .15s}
+.ways button i{width:14px;height:14px;background:var(--bg);border:1px solid var(--ink);position:relative;flex:none}
+.ways button i::after{content:"";position:absolute;inset:3px;background:var(--ink)}
+.ways button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.ways button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* ---------- tooltips ---------- */
+[data-tip]{text-decoration:underline dotted 1px;text-underline-offset:3px;cursor:help}
+#tip{position:fixed;z-index:9;max-width:260px;background:var(--ink);color:var(--bg);padding:6px 9px;font-size:11px;line-height:1.45;letter-spacing:.04em;pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+
+/* ---------- grids ---------- */
+.g2,.g3,.g4{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.stack{display:flex;flex-direction:column;gap:14px;min-width:0}
+@media (max-width:980px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){
+  .page{padding:16px 14px 48px;gap:22px}
+  .g2,.g3,.g4{grid-template-columns:minmax(0,1fr)}
+  .top{padding:22px 18px 20px}
+  .big.n{font-size:56px}
+  .tb.c2{grid-template-columns:max-content 1fr}
+  table,tbody,tr,td{display:block;width:100%}
+  thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  tr{border:1px solid var(--ink);margin-bottom:10px}
+  td{border:0;border-bottom:1px solid var(--ink);display:grid;grid-template-columns:38% 1fr;gap:10px}
+  td:last-child{border-bottom:0}
+  td::before{content:attr(data-label);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{.ways,#tip{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="k2wob" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2" seed="7"/>
+    <feDisplacementMap in="SourceGraphic" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="k2ink">
+    <feMorphology in="SourceGraphic" operator="erode" radius="0.35" result="e"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="3" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -5 0 0 0 3.9" result="m"/>
+    <feComposite in="e" in2="m" operator="in"/>
+  </filter>
+</svg>
+
+<main class="page">
+
+  <!-- hero -->
+  <header class="top">
+    <span class="cm tl"></span><span class="cm tr"></span><span class="cm bl"></span><span class="cm br"></span>
+    <div class="meta cap"><span>Plan / Episode 12</span><span>Version 3 / 24 Nov 2026</span></div>
+    <h1>Episode 12 plan</h1>
+    <p class="lead">This page sets the running order and the music for episode 12. One question is still open.</p>
+    <div class="bar" aria-hidden="true"></div>
+    <div class="sp">Ready for review</div>
+    <nav class="ways" aria-label="Ink and ground">
+      <button data-w="k-green"><i data-way="k-green"></i>Green</button>
+      <button data-w="k-bright"><i data-way="k-bright"></i>Bright</button>
+      <button data-w="k-orange"><i data-way="k-orange"></i>Orange</button>
+      <button data-w="k-signal"><i data-way="k-signal"></i>Signal</button>
+      <button data-w="k-lime"><i data-way="k-lime"></i>Lime</button>
+      <button data-w="k-night"><i data-way="k-night"></i>Night</button>
+      <button data-w="k-black"><i data-way="k-black"></i>Black</button>
+      <button data-w="k-slate"><i data-way="k-slate"></i>Slate</button>
+      <button data-w="k-bone"><i data-way="k-bone"></i>Bone</button>
+      <button data-w="k-sand"><i data-way="k-sand"></i>Sand</button>
+      <button data-w="k-charcoal"><i data-way="k-charcoal"></i>Charcoal</button>
+      <button data-w="k-lavender"><i data-way="k-lavender"></i>Lavender</button>
+      <button data-w="k-mint"><i data-way="k-mint"></i>Mint</button>
+    </nav>
+  </header>
+
+  <!-- 01: the answer, in four numbers -->
+  <section class="stack">
+    <div class="sec"><span class="n">01 / The answer</span><span class="ln"></span><span class="ct">4 numbers</span></div>
+    <div class="g4">
+      <div class="lb box"><div class="big n">24</div><div class="cap">Minutes long</div></div>
+      <div class="lb box"><div class="big n">5</div><div class="cap">Parts in the show</div></div>
+      <div class="lb box"><div class="big n">3</div><div class="cap">Pieces of music</div></div>
+      <div class="lb box"><div class="big n">1</div><div class="cap">Open question</div></div>
+    </div>
+  </section>
+
+  <!-- 02: details and the open question -->
+  <section class="stack">
+    <div class="sec"><span class="n">02 / Details</span><span class="ln"></span><span class="ct">2 cards</span></div>
+    <div class="g2">
+      <div class="lb box">
+        <div class="hd">
+          <svg viewBox="0 0 14 14"><rect x="1.5" y="1.5" width="11" height="11"/><path d="M4 5h6M4 7h6M4 9h4"/></svg>
+          <span>Recording</span>
+          <span class="r"><span class="tag">Set</span><span class="pill">Tue</span></span>
+        </div>
+        <div class="big p">Studio B</div>
+        <div class="tb kv">
+          <span>Host</span><span>Sam</span>
+          <span>Guest</span><span>Ana, from the radio club</span>
+          <span>Talk speed</span><span>About 150 words a minute</span>
+          <span>Take</span><span><span data-tip="Recording 2, made on Tuesday afternoon. It has the cleaner sound.">R2</span></span>
+        </div>
+        <div class="dim"><i></i><b>Intro 40 seconds</b><i></i></div>
+        <div class="tick" aria-hidden="true"></div>
+      </div>
+      <div class="lb dsh">
+        <div class="hd">
+          <svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5"/><path d="M5.4 5.4a1.7 1.7 0 1 1 2.3 1.6c-.5.2-.7.6-.7 1.1M7 10v.1"/></svg>
+          <span>Open question</span>
+          <span class="r"><span class="pill no">Not decided</span></span>
+        </div>
+        <p class="q">Should the guest story go before or after the news part?</p>
+        <p class="txt">Before keeps people listening. After keeps the news fresh. Pick one by Friday so the edit can start.</p>
+        <div class="rule" aria-hidden="true"></div>
+        <div class="tb c2">
+          <span>Due</span><span>Fri</span>
+          <span>Owner</span><span>You</span>
+        </div>
+        <div class="big s">Before or after</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03: running order -->
+  <section class="stack">
+    <div class="sec"><span class="n">03 / Running order</span><span class="ln"></span><span class="ct">5 rows</span></div>
+    <table>
+      <thead><tr><th>Part</th><th>What happens</th><th>Length</th><th>Music</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Part">1</td><td data-label="What happens">Hello and what is coming</td><td data-label="Length">40 seconds</td><td data-label="Music">Music 1, very quiet under your voice</td></tr>
+        <tr><td data-label="Part">2</td><td data-label="What happens">News from the week</td><td data-label="Length">6 minutes</td><td data-label="Music">None</td></tr>
+        <tr><td data-label="Part">3</td><td data-label="What happens">Guest story with Ana</td><td data-label="Length">12 minutes</td><td data-label="Music">Music 2 at the start only</td></tr>
+        <tr><td data-label="Part">4</td><td data-label="What happens">Listener letters</td><td data-label="Length">4 minutes</td><td data-label="Music">None</td></tr>
+        <tr><td data-label="Part">5</td><td data-label="What happens">Goodbye and next week</td><td data-label="Length">1 minute</td><td data-label="Music">Music 3, full volume at the end</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function(){
+  var root=document.documentElement,KEY="doc-way";
+  // ink buttons
+  var btns=document.querySelectorAll(".ways button");
+  function setWay(w){
+    root.dataset.way=w;
+    btns.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.w===w)});
+    try{localStorage.setItem(KEY,w)}catch(e){}
+    spread();
+  }
+  btns.forEach(function(b){b.addEventListener("click",function(){setWay(b.dataset.w)})});
+  // spread .sp lines edge to edge when they fit
+  function spread(){
+    document.querySelectorAll(".sp").forEach(function(el){
+      el.style.letterSpacing="";el.classList.remove("wrap");
+      var n=el.textContent.trim().length;if(n<2)return;
+      var base=parseFloat(getComputedStyle(el).letterSpacing)||0;
+      var r=document.createRange();r.selectNodeContents(el);
+      var glyphs=r.getBoundingClientRect().width-n*base;
+      var ls=(el.clientWidth-glyphs)/(n-1);
+      if(ls>=base)el.style.letterSpacing=ls+"px";else el.classList.add("wrap");
+    });
+  }
+  // tooltips on hover and tap
+  var tip=document.getElementById("tip"),cur=null;
+  function show(el){
+    cur=el;tip.textContent=el.dataset.tip;tip.classList.add("on");
+    var r=el.getBoundingClientRect(),t=tip.getBoundingClientRect();
+    tip.style.left=Math.max(8,Math.min(r.left,innerWidth-t.width-8))+"px";
+    tip.style.top=(r.bottom+t.height+12>innerHeight?r.top-t.height-6:r.bottom+6)+"px";
+  }
+  function hide(){cur=null;tip.classList.remove("on")}
+  document.querySelectorAll("[data-tip]").forEach(function(el){
+    el.tabIndex=0;
+    el.addEventListener("mouseenter",function(){show(el)});
+    el.addEventListener("mouseleave",hide);
+    el.addEventListener("focus",function(){show(el)});
+    el.addEventListener("blur",hide);
+    el.addEventListener("click",function(e){e.stopPropagation();show(el)});
+  });
+  document.addEventListener("click",hide);
+  addEventListener("scroll",hide,{passive:true});
+  setWay(root.dataset.way||"k-green");
+  if(document.fonts)document.fonts.ready.then(spread);
+  addEventListener("resize",spread);
+})();
+</script>
+</body>
+</html>
